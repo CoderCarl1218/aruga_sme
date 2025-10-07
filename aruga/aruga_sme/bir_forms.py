@@ -895,8 +895,8 @@ def bir_1601_fq(company, year, quarter, response_type="pdf"):
             `tabATC` as a
         ON
             temp.atc = a.name
-        WHERE
-            a.form_type = '2306'
+        # WHERE
+        #     a.form_type = '2306'
         """, (company, year, quarter, company, year, quarter), as_dict=1)
 
     for entry in data:
@@ -1249,4 +1249,5 @@ def make_ordinal(n):
     suffix = ['th', 'st', 'nd', 'rd', 'th'][min(n % 10, 4)]
     if 11 <= (n % 100) <= 13:
         suffix = 'th'
+
     return str(n) + suffix
